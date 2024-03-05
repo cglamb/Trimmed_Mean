@@ -19,7 +19,7 @@ mean(x,trim=.10)
 x <- seq(-50, by = 5, length.out = 100)
 print(x)
 mean(x,trim=.10)
-'''
+```
 
 ## Example
 
@@ -53,5 +53,5 @@ func main() {
         fmt.Println(err)
     }
     fmt.Println("Trimmed mean is ", mean1)
-}'''
+}```
 
