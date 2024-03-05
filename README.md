@@ -55,5 +55,46 @@ func main() {
         fmt.Println(err)
     }
     fmt.Println("Trimmed mean is ", mean1)
-}```
+}
+```
+## Testing Results
 
+PS C:\Users\CGLam\go\src\trimmed_mean> go test -v
+=== RUN   TestConvertToFloat64
+=== RUN   TestConvertToFloat64/Integer
+=== RUN   TestConvertToFloat64/Float64
+=== RUN   TestConvertToFloat64/Mixed
+=== RUN   TestConvertToFloat64/strings
+=== RUN   TestConvertToFloat64/nil
+--- PASS: TestConvertToFloat64 (0.00s)
+    --- PASS: TestConvertToFloat64/Integer (0.00s)
+    --- PASS: TestConvertToFloat64/Float64 (0.00s)
+    --- PASS: TestConvertToFloat64/Mixed (0.00s)
+    --- PASS: TestConvertToFloat64/strings (0.00s)
+    --- PASS: TestConvertToFloat64/nil (0.00s)
+=== RUN   TestTrim
+=== RUN   TestTrim/10%_Trime
+=== RUN   TestTrim/20%_Trime
+=== RUN   TestTrim/30%_Trime
+=== RUN   TestTrim/40%_Trime
+=== RUN   TestTrim/45%_Trime
+=== RUN   TestTrim/Assymetric_10/30
+=== RUN   TestTrim/Assymetric_30/10
+=== RUN   TestTrim/Fail_100%_Trim
+--- PASS: TestTrim (0.00s)
+    --- PASS: TestTrim/10%_Trime (0.00s)
+    --- PASS: TestTrim/20%_Trime (0.00s)
+    --- PASS: TestTrim/30%_Trime (0.00s)
+    --- PASS: TestTrim/40%_Trime (0.00s)
+    --- PASS: TestTrim/45%_Trime (0.00s)
+    --- PASS: TestTrim/Assymetric_10/30 (0.00s)
+    --- PASS: TestTrim/Assymetric_30/10 (0.00s)
+    --- PASS: TestTrim/Fail_100%_Trim (0.00s)
+=== RUN   TestAvg
+=== RUN   TestAvg/average_of_positive_numbers
+=== RUN   TestAvg/emplty_slice_throws_an_error
+=== RUN   TestAvg/mean_of_negative_numbers
+=== RUN   TestAvg/single_number_mean
+=== RUN   TestAvg/mixed_positive_and_negative_numbers_mean
+--- PASS: TestAvg (0.00s)
+    --- PASS: Test
