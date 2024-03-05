@@ -10,7 +10,7 @@ The trimmed mean function can be accessed using `trimmed_mean.Tmean([]interface{
 The upper percentile input is optional and if left blank will default to the same value as the lower percentile.
 
 ## Testing
-A number of unit tests are included in `trimmed_mean_test`. Amongst the unit tests is a `TestTMean` function which tests the trimmed mean calculation on two sequences (each input twice – once as a sequence of integers and once as a sequence of float64). The expected result was determined by using `mean(x,trim)` in R.
+A number of unit tests are included in `trimmed_mean_test.go`. Amongst the unit tests is a `TestTMean` function which tests the trimmed mean calculation on two sequences (each input twice – once as a sequence of integers and once as a sequence of float64). The expected result was determined by using `mean(x,trim)` in R.
 
 ```r
 x <- seq(1, by = 5, length.out = 100)
@@ -19,6 +19,7 @@ mean(x,trim=.10)
 x <- seq(-50, by = 5, length.out = 100)
 print(x)
 mean(x,trim=.10)
+'''
 
 ## Example
 
@@ -52,5 +53,5 @@ func main() {
         fmt.Println(err)
     }
     fmt.Println("Trimmed mean is ", mean1)
-}
+}'''
 
