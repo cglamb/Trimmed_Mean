@@ -1,4 +1,4 @@
-package Go_Trimmed_Mean
+package trimmed_mean
 
 import (
 	"fmt"
@@ -210,6 +210,73 @@ func TestAvg(t *testing.T) {
 				// 	t.Errorf("Test '%s' failed: expected error '%v', got '%v'", tc.scenario, tc.expectedError, err)
 			} else if actual != test.expectedAvg {
 				t.Errorf("average does not match expected")
+			}
+		})
+	}
+}
+
+// used to generate a sequence of numbers for testing
+func genIntSlice(start, step, count int) []interface{} {
+	seq := make([]interface{}, count)
+	for i := 0; i < count; i++ {
+		seq[i] = start + step*i
+	}
+	return seq
+}
+
+// results compared against R's mean function ()
+func TestTMean(t *testing.T) {
+	testCases := []struct {
+		scenario        string
+		nums            []interface{}
+		lowerPercentile float64
+		upperPercentile float64
+		expected        float64
+		expectError     bool
+	}{
+		{
+			scenario:        "100 integers starting at 1 and increasing by 5...passed as integers",
+			nums:            genIntSlice(1, 5, 100),
+			lowerPercentile: 0.1,
+			upperPercentile: 0.1,
+			expected:        248.5,
+			expectError:     false,
+		},
+		{
+			scenario:        "100 integers starting at -50 and increasing by 5...passed as integers",
+			nums:            genIntSlice(-50, 5, 100),
+			lowerPercentile: 0.1,
+			upperPercentile: 0.1,
+			expected:        197.5,
+			expectError:     false,
+		},
+		{
+			scenario:        "100 integers starting at 1 and increasing by 5...passed as float",
+			nums:            genIntSlice(1.0, 5.0, 100),
+			lowerPercentile: 0.1,
+			upperPercentile: 0.1,
+			expected:        248.5,
+			expectError:     false,
+		},
+		{
+			scenario:        "100 integers starting at -50 and increasing by 5...passed as integers",
+			nums:            genIntSlice(-50.0, 5.0, 100),
+			lowerPercentile: 0.1,
+			upperPercentile: 0.1,
+			expected:        197.5,
+			expectError:     false,
+		},
+	}
+
+	for _, test := range testCases {
+		t.Run(test.scenario, func(t *testing.T) {
+			actual, err := TMean(test.nums, test.lowerPercentile, test.upperPercentile)
+			if (err != nil) != test.expectError {
+				t.Errorf("error")
+				return
+			}
+			if !test.expectError && actual != test.expected {
+				t.Errorf("error")
 			}
 		})
 	}

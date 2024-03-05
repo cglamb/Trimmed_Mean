@@ -1,3 +1,3 @@
-module github.com/cglamb/Go_Trimmed_Mean
+module github.com/cglamb/Trimmed_Mean
 
 go 1.21.5

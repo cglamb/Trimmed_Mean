@@ -1,6 +1,6 @@
 //calculates trimmed mean
 
-package Go_Trimmed_Mean
+package trimmed_mean
 
 import (
 	"fmt"
@@ -92,7 +92,7 @@ func trimmed_mean_base(nums []interface{}, lower_percentile float64, upper_perce
 
 // calculates the trimmed mean
 // defaults two percentiles to the same value if only 1 parameter is passed
-func trimmedMean(nums []interface{}, lowerPercentile float64, upperPercentiles ...float64) (float64, error) {
+func TMean(nums []interface{}, lowerPercentile float64, upperPercentiles ...float64) (float64, error) {
 
 	// default to symmetric trimming
 	upperPercentile := lowerPercentile
