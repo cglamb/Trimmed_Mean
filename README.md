@@ -59,6 +59,7 @@ func main() {
 ```
 ## Testing Results
 
+```plaintext
 PS C:\Users\CGLam\go\src\trimmed_mean> go test -v
 === RUN   TestConvertToFloat64
 === RUN   TestConvertToFloat64/Integer
@@ -98,3 +99,4 @@ PS C:\Users\CGLam\go\src\trimmed_mean> go test -v
 === RUN   TestAvg/mixed_positive_and_negative_numbers_mean
 --- PASS: TestAvg (0.00s)
     --- PASS: Test
+```
